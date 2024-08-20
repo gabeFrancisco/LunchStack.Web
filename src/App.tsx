@@ -1,22 +1,20 @@
 import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProtectedRoute from "./components/Router/ProtectedRoutes";
+import LoginPage from "./pages/login";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="bg-blue-300 text-blue">
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p className="text-green-700">
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<div>App!!!</div>} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="dashboard" element={<div>Dashboard</div>}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
