@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import Header from "../header/Header";
+import Header from "../Header/Header.tsx";
 
 function ProtectedRoute() {
   const user = true;
@@ -8,12 +8,12 @@ function ProtectedRoute() {
   }
 
   return (
-    <>
+    <div>
       <Header />
       <div>
         <Outlet />
       </div>
-    </>
+    </div>
   );
 }
 
