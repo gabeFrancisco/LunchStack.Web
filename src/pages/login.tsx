@@ -8,7 +8,9 @@ function LoginPage() {
     },
     enableReinitialize: true,
     validateOnChange: false,
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      console.log(values)
+    },
   });
 
   return (
@@ -20,8 +22,8 @@ function LoginPage() {
             <input
               className="border border-gray-200 p-0.5"
               type="text"
-              id="name"
-              name="name"
+              id="username"
+              name="username"
               placeholder="Usuário"
               value={formik.values.username}
               onChange={formik.handleChange}
@@ -30,7 +32,7 @@ function LoginPage() {
           <div className="my-2">
             <input
               className="border border-gray-200 p-0.5"
-              type="text"
+              type="password"
               id="password"
               name="password"
               placeholder="Senha"
@@ -40,6 +42,7 @@ function LoginPage() {
           </div>
           <button
             type="button"
+            onClick={() => formik.handleSubmit()}
             className="px-3 py-1 text-white rounded bg-primary hover:bg-blue-900"
           >
             Entrar!
