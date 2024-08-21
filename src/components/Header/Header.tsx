@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="px-5 py-3 border-b flex flex-row bg-blue-700 text-white">
+    <header className="flex flex-row px-5 py-3 text-white border-b bg-primary">
       <h1>LunchStack.Web</h1>
       <ul className="flex flex-row">
         <li>

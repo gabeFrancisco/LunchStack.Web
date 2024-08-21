@@ -1,10 +1,9 @@
 function LoginPage() {
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center">
-      <div className="-mt-24 border shadow-sm p-3 border-gray-200 rounded">
+    <div className="flex flex-col items-center justify-center w-screen h-screen">
+      <div className="p-3 -mt-24 border border-gray-200 rounded shadow-sm">
         Login
       </div>
-      Login page!
     </div>
   );
 }
