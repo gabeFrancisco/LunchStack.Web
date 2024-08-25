@@ -1,6 +1,9 @@
 import { useFormik } from "formik";
+import { useAppDispatch } from "../store/store";
+import { fetchLogin } from "../store/slices/authSlice";
 
 function LoginPage() {
+  const dispatch = useAppDispatch();
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -9,6 +12,7 @@ function LoginPage() {
     enableReinitialize: true,
     validateOnChange: false,
     onSubmit: (values) => {
+      dispatch(fetchLogin(values))
       console.log(values)
     },
   });

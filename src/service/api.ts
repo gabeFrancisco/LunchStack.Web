@@ -2,7 +2,7 @@ import axios, { InternalAxiosRequestConfig} from 'axios'
 import authService from './authService'
 
 const urls = {
-  dev: "http://localhost:5003"
+  dev: "http://localhost:5187/api"
 }
 
 const api = axios.create({

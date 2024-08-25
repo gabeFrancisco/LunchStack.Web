@@ -1,9 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Header from "../Header/Header.tsx";
+import authService from "../../service/authService.ts";
 
 function ProtectedRoutes() {
-  const user = true;
-  if (!user) {
+  const auth = authService.checkAuth()
+  if (!auth) {
     return <Navigate to="/login" replace />;
   }
 
