@@ -1,27 +1,44 @@
-import axios, { InternalAxiosRequestConfig} from 'axios'
-import authService from './authService'
+import axios, { AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
+import authService from "./authService";
 
 const urls = {
-  dev: "http://localhost:5187/api"
-}
+  dev: "http://localhost:5187/api",
+};
 
 const api = axios.create({
   baseURL: urls.dev,
-  timeout: 5000
-})
+  timeout: 5000,
+});
 
+api.defaults.withCredentials = true;
 api.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
-  try{
-    const token = authService.getToken()
-    if(token){
-      config.headers["Authorization"] = `Bearer ${token}`
-    }
+  try {
+    config.headers["Authorization"] = `Bearer ${authService.getToken()}`;
 
-    return config
-  }
-  catch (error){
+    return config;
+  } catch (error) {
+    console.log(error)
     return config;
   }
-})
+});
 
+api.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response.status === 401) {
+      api.post(`auth/refresh?token=${authService.getToken()}`).then((res) => {
+        if(res.status === 200){
+          console.log(res)
+          api.defaults.headers["Authorization"] = `Bearer ${res.data.token}`;
+          authService.saveToken(res.data.token)
+        }
+      })
+    }
+  }
+)
+
+const config: AxiosRequestConfig = {};
+api(config);
 export default api;

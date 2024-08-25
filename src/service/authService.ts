@@ -6,9 +6,9 @@ const saveToken = (token: string) => {
   }
 };
 
-const getToken = (): string | null => {
-  const token = JSON.parse(localStorage.getItem("token") || "{}");
-  return token;
+const getToken = (): string => {
+  const token = localStorage.getItem("token");
+  return token as string;
 };
 
 const saveUser = (user: User) => {
