@@ -17,7 +17,7 @@ const saveUser = (user: User) => {
   }
 };
 
-const getUser = (): string | null => {
+const getUser = (): User | null => {
   const user = JSON.parse(localStorage.getItem("user") || "{}");
   return user;
 };

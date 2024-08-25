@@ -1,8 +1,15 @@
 import { useFormik } from "formik";
 import { useAppDispatch } from "../store/store";
 import { fetchLogin } from "../store/slices/authSlice";
+import authService from "../service/authService";
+import { Navigate } from "react-router-dom";
 
 function LoginPage() {
+  const auth = authService.checkAuth()
+  if(auth){
+    return <Navigate to="/dashboard"/>
+  }
+
   const dispatch = useAppDispatch();
   const formik = useFormik({
     initialValues: {
