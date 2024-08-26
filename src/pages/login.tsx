@@ -2,12 +2,13 @@ import { useFormik } from "formik";
 import { useAppDispatch } from "../store/store";
 import { fetchLogin } from "../store/slices/authSlice";
 import authService from "../service/authService";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const auth = authService.checkAuth()
+  const navigate = useNavigate();
   if(auth){
-    return <Navigate to="/dashboard"/>
+    navigate("/dashboard")
   }
 
   const dispatch = useAppDispatch();
@@ -19,8 +20,7 @@ function LoginPage() {
     enableReinitialize: true,
     validateOnChange: false,
     onSubmit: (values) => {
-      dispatch(fetchLogin(values))
-      console.log(values)
+      dispatch(fetchLogin(values)).then(() => navigate("/dashboard"))
     },
   });
 
