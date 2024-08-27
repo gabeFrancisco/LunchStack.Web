@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../../service/api";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 function DashboardPage() {
   const [result, setResult] = useState("dsas");
