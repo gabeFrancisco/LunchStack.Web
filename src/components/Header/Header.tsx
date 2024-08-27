@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import authService from "../../service/authService";
-import { BiLogOut } from "react-icons/bi";
+import { BiPowerOff } from "react-icons/bi";
 
 function Header() {
   const links = [
@@ -32,8 +32,8 @@ function Header() {
       </div>
       <div className="flex flex-row items-center">
         <small>Bem vindo {user?.username}</small>
-        <button>
-          <BiLogOut className="mx-2 text-xl hover:text-yellow-200" />
+        <button title="Sair">
+          <BiPowerOff className="mx-2 text-xl hover:text-yellow-200" />
         </button>
       </div>
     </header>
