@@ -19,7 +19,7 @@ function Header() {
   ];
   const user = authService.getUser();
   return (
-    <header className="sticky top-0 flex flex-row justify-between px-5 py-3 text-white border-b bg-primary">
+    <header className="sticky top-0 z-50 flex flex-row justify-between px-5 py-3 text-white border-b bg-primary">
       <div className="flex flex-row ">
         <h1 className="mx-5">LunchStack.Web</h1>
         <ul className="flex flex-row">
