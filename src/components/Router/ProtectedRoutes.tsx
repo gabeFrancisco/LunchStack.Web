@@ -10,12 +10,14 @@ function ProtectedRoutes() {
   }
 
   return (
-    <div>
-      <Header />
-      <div className="flex flex-row flex-grow">
+    <div className="w-full h-full">
+      <div className="flex flex-row w-full">
         <Sidebar />
-        <div className="p-5">
+        <div className="flex flex-col w-full">
+          <Header />
+          <div className="p-5">
             <Outlet />
+          </div>
         </div>
       </div>
     </div>
