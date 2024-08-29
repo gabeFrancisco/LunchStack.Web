@@ -28,7 +28,7 @@ function Sidebar() {
       <div className="w-full px-3 py-3 text-white shadow bg-primary">
         Lunckstack.Web
       </div>
-      <ul className="w-full h-full py-3 border-r">
+      <ul className="w-full h-full py-3 pb-16 overflow-y-auto border-r">
         <div>
           <p className="pl-1 bg-gray-200">Estabelecimento</p>
           <div className="px-3">
