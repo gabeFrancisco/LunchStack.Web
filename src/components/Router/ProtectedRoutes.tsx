@@ -15,7 +15,7 @@ function ProtectedRoutes() {
         <Sidebar />
         <div className="flex flex-col w-full">
           <Header />
-          <div className="p-5">
+          <div className="p-5 text-gray-500">
             <Outlet />
           </div>
         </div>
