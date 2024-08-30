@@ -1,6 +1,8 @@
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
+
 function ProdutosPage() {
   return ( <div>
-    Produtos
+    <SectionTitle title="Produtos" subtitle="Gerencie todos os seus produtos por aqui."/>
   </div> );
 }
 

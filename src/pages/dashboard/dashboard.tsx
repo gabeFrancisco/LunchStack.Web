@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../../service/api";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 function DashboardPage() {
   const [result, setResult] = useState("dsas");
@@ -14,6 +15,7 @@ function DashboardPage() {
   };
   return (
     <div>
+      <SectionTitle title="Dashboard" subtitle="Visualize em tempo real informações sobre seu dia e negócio."/>
       <button
         type="button"
         onClick={fetch}

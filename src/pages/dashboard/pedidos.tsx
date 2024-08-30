@@ -1,6 +1,8 @@
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
+
 function PedidosPage() {
   return <div>
-    Pedidos
+    <SectionTitle title="Pedidos" subtitle="Gerencie seus pedidos nesta seção."/>
   </div>;
 }
 
