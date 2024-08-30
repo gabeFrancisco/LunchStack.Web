@@ -25,65 +25,13 @@ function DashboardPage() {
       <p className="text-black">{result}</p>
       <p className="text-black">{result}</p>
       <p className="text-black">{result}</p>
+    
       <p className="text-black">{result}</p>
       <p className="text-black">{result}</p>
       <p className="text-black">{result}</p>
       <p className="text-black">{result}</p>
       <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
-      <p className="text-black">{result}</p>
+      
     </div>
   );
 }
