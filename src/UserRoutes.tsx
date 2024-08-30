@@ -1,9 +1,9 @@
 import { Navigate, Outlet } from "react-router-dom";
-import Header from "../Header/Header.tsx";
-import authService from "../../service/authService.ts";
-import Sidebar from "../Sidebar/Sidebar.tsx";
+import Header from "./components/Header/Header.tsx";
+import authService from "./service/authService.ts";
+import Sidebar from "./components/Sidebar/Sidebar.tsx";
 
-function ProtectedRoutes() {
+function UserRoutes() {
   const auth = authService.checkAuth();
   if (!auth) {
     return <Navigate to="/login" replace />;
@@ -22,4 +22,4 @@ function ProtectedRoutes() {
   );
 }
 
-export default ProtectedRoutes;
+export default UserRoutes;
