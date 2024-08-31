@@ -40,11 +40,11 @@ api.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
 // );
 
 api.interceptors.response.use(
-  response => response,
-  (error) => {
+  undefined,
+  async (error) => {
     const originalRequest = error.config;
     if (error.response.status === 401) {
-      api.post(`auth/refresh?token=${authService.getToken()}`).then((res) => {
+      await api.post(`auth/refresh?token=${authService.getToken()}`).then((res) => {
         if (res.status === 200) {
           api.defaults.headers["Authorization"] = `Bearer ${res.data.token}`;
           authService.saveToken(res.data.token);
