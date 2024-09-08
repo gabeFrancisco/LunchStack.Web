@@ -22,23 +22,6 @@ api.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
   }
 });
 
-// api.interceptors.response.use(
-//   (response) => {
-//     return response;
-//   },
-//   (error) => {
-//     if (error.response.status === 401) {
-//       api.post(`auth/refresh?token=${authService.getToken()}`).then((res) => {
-//         if (res.status === 200) {
-//           console.log(res);
-//           api.defaults.headers["Authorization"] = `Bearer ${res.data.token}`;
-//           authService.saveToken(res.data.token);
-//         }
-//       });
-//     }
-//   }
-// );
-
 api.interceptors.response.use(
   undefined,
   async (error) => {
@@ -49,7 +32,10 @@ api.interceptors.response.use(
           api.defaults.headers["Authorization"] = `Bearer ${res.data.token}`;
           authService.saveToken(res.data.token);
         }
-      });
+      }).catch(() => {
+        authService.logout();
+        location.href = "/login"
+      })
       console.log(originalRequest)
       return api(originalRequest);
     }
