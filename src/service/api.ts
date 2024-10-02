@@ -13,7 +13,7 @@ const api = axios.create({
 api.defaults.withCredentials = true;
 api.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
   try {
-    config.headers["Authorization"] = `Bearer ${authService.getToken()}`;
+    // config.headers["Authorization"] = `Bearer ${authService.getToken()}`;
 
     return config;
   } catch (error) {
@@ -27,16 +27,16 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
     if (error.response.status === 401) {
-      await api.post(`auth/refresh?token=${authService.getToken()}`).then((res) => {
+      await api.post(`auth/refresh`).then((res) => {
         if (res.status === 200) {
-          api.defaults.headers["Authorization"] = `Bearer ${res.data.token}`;
-          authService.saveToken(res.data.token);
+          // api.defaults.headers["Authorization"] = `Bearer ${res.data.token}`;
+          // authService.saveToken(res.data.token);
         }
-      }).catch(() => {
+      })
+      .catch(() => {
         authService.logout();
         location.href = "/login"
       })
-      console.log(originalRequest)
       return api(originalRequest);
     }
     return Promise.reject(error)

@@ -33,10 +33,18 @@ export const fetchLogin = createAsyncThunk(
     ) as AuthState
 
     authService.saveUser(response.user);
-    authService.saveToken(response.token);
 
     api.defaults.headers.common["Authorization"] = `Bearer ${response.token}`
     return response
+  }
+)
+
+export const getActualUser = createAsyncThunk(
+  "auth/actualUser",
+  async () => {
+    const response =  await api.get("/user/actualUser").then(res => res.data) as AuthState;
+    authService.saveUser(response.user);
+    return response;
   }
 )
 
@@ -52,6 +60,10 @@ export const AuthSlice = createSlice({
     builder.addCase(fetchLogin.rejected, (state, _action) => {
       state.message = "Username or password are incorrect!"
     });
+    builder.addCase(getActualUser.fulfilled, (state, action) => {
+      state.user = action.payload.user;
+      console.log(action.payload)
+    })
   }
 })
 

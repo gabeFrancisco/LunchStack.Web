@@ -1,16 +1,5 @@
 import { User } from "../models/User";
 
-const saveToken = (token: string) => {
-  if (token) {
-    localStorage.setItem("token", token);
-  }
-};
-
-const getToken = (): string => {
-  const token = localStorage.getItem("token");
-  return token as string;
-};
-
 const saveUser = (user: User) => {
   if (user) {
     localStorage.setItem("user", JSON.stringify(user));
@@ -22,9 +11,8 @@ const getUser = (): User | null => {
   return user;
 };
 
-const checkAuth = () => (localStorage.getItem("token") !== null ? true : false);
 const logout = () => {
   localStorage.clear();
 };
 
-export default { saveToken, saveUser, getUser, checkAuth, getToken, logout };
+export default { saveUser, getUser, logout };
