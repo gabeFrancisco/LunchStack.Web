@@ -33,6 +33,9 @@ function DashboardPage() {
         Fetch!
       </button>
       <p>{result}</p>
+      {categories.map((el, index) => (
+        <p key={index}>{el.name}</p>
+      ))}
       
     </div>
   );
