@@ -1,4 +1,3 @@
-import authService from "../../service/authService";
 import { BiPowerOff } from "react-icons/bi";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { useEffect } from "react";

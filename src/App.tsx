@@ -4,6 +4,7 @@ import LoginPage from "./pages/login";
 import HomePage from "./pages/home";
 import DashboardPage from "./pages/dashboard/dashboard";
 import ProdutosPage from "./pages/dashboard/produtos";
+import CategoriasPage from "./pages/dashboard/categorias";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route element={<UserRoutes />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/dashboard/produtos" element={<ProdutosPage />} />
+            <Route path="/dashboard/categorias" element={<CategoriasPage/>}/>
             <Route path="*" element={<div>Page not found!</div>}/>
           </Route>
         </Routes>

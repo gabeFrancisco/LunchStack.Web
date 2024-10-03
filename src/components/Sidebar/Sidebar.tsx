@@ -1,5 +1,6 @@
 import {
   BiBarChart,
+  BiCategory,
   BiChart,
   BiDollar,
   BiFoodMenu,
@@ -16,6 +17,11 @@ function Sidebar() {
       name: "Dashboard",
       url: "dashboard",
       icon: <BiBarChart />,
+    },
+    {
+      name: "Categorias",
+      url: "dashboard/categorias",
+      icon: <BiCategory />,
     },
     {
       name: "Produtos",
