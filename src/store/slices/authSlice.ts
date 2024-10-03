@@ -42,7 +42,7 @@ export const fetchLogin = createAsyncThunk(
 export const getActualUser = createAsyncThunk(
   "auth/actualUser",
   async () => {
-    const response =  await api.get("/user/actualUser").then(res => res.data) as AuthState;
+    const response =  await api.get("/user/actualUser").then(res => res.data);
     authService.saveUser(response.user);
     return response;
   }
@@ -61,7 +61,7 @@ export const AuthSlice = createSlice({
       state.message = "Username or password are incorrect!"
     });
     builder.addCase(getActualUser.fulfilled, (state, action) => {
-      state.user = action.payload.user;
+      state.user = action.payload
       console.log(action.payload)
     })
   }

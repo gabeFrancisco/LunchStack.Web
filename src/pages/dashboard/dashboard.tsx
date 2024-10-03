@@ -7,11 +7,11 @@ import { getAllAsync } from "../../store/slices/categorySlice";
 function DashboardPage() {
   const [result, setResult] = useState("Ready!");
   const dispatch = useAppDispatch();
-  const categories = useAppSelector(state => state.categories.categoryList);
+  const categories = useAppSelector((state) => state.categories.categoryList);
 
   useEffect(() => {
-    dispatch(getAllAsync())
-  }, [])
+    dispatch(getAllAsync());
+  }, []);
 
   const fetch = () => {
     api.get("/auth").then((res) => {
@@ -24,7 +24,10 @@ function DashboardPage() {
   };
   return (
     <div>
-      <SectionTitle title="Dashboard" subtitle="Visualize em tempo real informações sobre seu dia e negócio."/>
+      <SectionTitle
+        title="Dashboard"
+        subtitle="Visualize em tempo real informações sobre seu dia e negócio."
+      />
       <button
         type="button"
         onClick={fetch}
@@ -36,7 +39,6 @@ function DashboardPage() {
       {categories.map((el, index) => (
         <p key={index}>{el.name}</p>
       ))}
-      
     </div>
   );
 }
