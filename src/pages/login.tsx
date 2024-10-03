@@ -1,8 +1,8 @@
 import { useFormik } from "formik";
-import { useAppDispatch, useAppSelector } from "../store/store";
-import { fetchLogin, getActualUser } from "../store/slices/authSlice";
+import { useAppDispatch } from "../store/store";
+import { fetchLogin } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import axios from "axios";
 import { urls } from "../service/api";
 
