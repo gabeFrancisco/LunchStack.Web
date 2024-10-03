@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
 import authService from "./authService";
 
-const urls = {
+export const urls = {
   dev: "http://localhost:5187/api",
 };
 
@@ -29,8 +29,7 @@ api.interceptors.response.use(
     if (error.response.status === 401) {
       await api.post(`auth/refresh`).then((res) => {
         if (res.status === 200) {
-          // api.defaults.headers["Authorization"] = `Bearer ${res.data.token}`;
-          // authService.saveToken(res.data.token);
+          return;
         }
       })
       .catch(() => {

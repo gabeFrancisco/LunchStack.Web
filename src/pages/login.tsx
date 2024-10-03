@@ -1,17 +1,25 @@
 import { useFormik } from "formik";
-import { useAppDispatch } from "../store/store";
-import { fetchLogin } from "../store/slices/authSlice";
-import authService from "../service/authService";
+import { useAppDispatch, useAppSelector } from "../store/store";
+import { fetchLogin, getActualUser } from "../store/slices/authSlice";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useLayoutEffect } from "react";
+import axios from "axios";
+import { urls } from "../service/api";
 
 function LoginPage() {
-  const auth = authService.checkAuth()
   const navigate = useNavigate();
-  if(auth){
-    navigate("/dashboard")
-  }
-
   const dispatch = useAppDispatch();
+
+  useLayoutEffect(() => {
+    axios
+      .get(urls.dev + "/user/actualUser", { withCredentials: true})
+      .then(() => {
+        navigate("/dashboard")
+      })
+      .catch(() => {
+      });
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -20,7 +28,7 @@ function LoginPage() {
     enableReinitialize: true,
     validateOnChange: false,
     onSubmit: (values) => {
-      dispatch(fetchLogin(values)).then(() => navigate("/dashboard"))
+      dispatch(fetchLogin(values)).then(() => navigate("/dashboard"));
     },
   });
 

@@ -3,7 +3,7 @@ import api from "../../service/api";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 function DashboardPage() {
-  const [result, setResult] = useState("dsas");
+  const [result, setResult] = useState("Ready!");
   const fetch = () => {
     api.get("/auth").then((res) => {
       if (res.status === 200) {

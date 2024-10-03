@@ -12,7 +12,7 @@ function UserRoutes() {
 
   useLayoutEffect(() => {
     dispatch(getActualUser()).then(() => {
-      if (user !== undefined) {
+      if (user === undefined) {
         navigate("/login")
       }
     })
