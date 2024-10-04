@@ -6,6 +6,8 @@ import DashboardPage from "./pages/dashboard/dashboard";
 import ProdutosPage from "./pages/dashboard/produtos";
 import CategoriasPage from "./pages/dashboard/categorias";
 
+import 'react-loading-skeleton/dist/skeleton.css'
+
 function App() {
   return (
     <div>
