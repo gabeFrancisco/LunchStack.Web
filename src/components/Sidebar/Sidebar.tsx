@@ -2,8 +2,11 @@ import {
   BiBarChart,
   BiCategory,
   BiChart,
+  BiCheese,
+  BiDish,
   BiDollar,
   BiFoodMenu,
+  BiFoodTag,
   BiGroup,
   BiTable,
   BiUser,
@@ -26,12 +29,12 @@ function Sidebar() {
     {
       name: "Produtos",
       url: "dashboard/produtos",
-      icon: <BiDollar />,
+      icon: <BiFoodMenu />,
     },
     {
       name: "Pedidos",
       url: "pedidos",
-      icon: <BiFoodMenu />,
+      icon: <BiDish />,
     },
     {
       name: "Mesas",
