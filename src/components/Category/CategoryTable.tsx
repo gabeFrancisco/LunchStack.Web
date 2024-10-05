@@ -10,23 +10,23 @@ function CategoryTable() {
     dispatch(getAllAsync());
   }, []);
   return (
-    <div className="w-full px-3 py-2 border rounded shadow-sm">
+    <div className="grid w-full grid-cols-3 gap-4">
 {categories.length > 0 ? (
   categories.map((el, index) => (
-    <div className="w-full border-b border-gray-100" key={index}>
-      <div className="px-4 py-2 border-r whitespace-nowrap">
+    <div className="flex flex-row flex-grow w-full my-3 rounded shadow justify-stretch" key={index}>
+      <div className="mr-5">
         <div
           style={{ backgroundColor: el.color }}
-          className="py-2 text-center rounded"
+          className="h-full p-8 text-center rounded-tl rounded-bl "
         ></div>
       </div>
-      <div className="px-4 py-2 whitespace-nowrap">{el.name}</div>
-      <div className="px-4 py-2 whitespace-nowrap">{el.id}</div>
+      <div className="px-4 py-4 text-xl font-bold ">{el.name}</div>
+      <div className="px-4 py-4 ">Produtos associados: {el.id}</div>
     </div>
   ))
 ) : (
 
-    <Skeleton  height="2rem" className="w-full my-2" count={1} />
+    <Skeleton  height="2rem" className="w-full my-2" count={3} />
 )}
     </div>
   );
