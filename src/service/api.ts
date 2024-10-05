@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
+import axios, { AxiosError, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios";
 import authService from "./authService";
 
 export const urls = {
@@ -7,7 +7,7 @@ export const urls = {
 
 const api = axios.create({
   baseURL: urls.dev,
-  timeout: 5000,
+  timeout: 10000,
 });
 
 api.defaults.withCredentials = true;
@@ -26,6 +26,9 @@ api.interceptors.response.use(
   undefined,
   async (error) => {
     const originalRequest = error.config;
+    if(error.code === AxiosError.ERR_NETWORK){
+      alert("Houve um problema com a conexão aos nossos servidores! Contate o suporte ou tente mais tarde!")
+    }
     if (error.response.status === 401) {
       await api.post(`auth/refresh`).then((res) => {
         if (res.status === 200) {
