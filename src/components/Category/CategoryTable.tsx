@@ -10,48 +10,27 @@ function CategoryTable() {
     dispatch(getAllAsync());
   }, []);
   return (
-    <div className="flex flex-col shadow">
-      <div className="w-full overflow-x-auto">
-        <div className="inline-block min-w-full">
-          <div className="overflow-hidden">
-            <table className="min-w-full text-sm font-light text-center text-surface dark:text-white">
-              <thead className="font-medium border-b">
-                <tr>
-                  <th scope="col" className="px-6 py-2">
-                    Cor
-                  </th>
-                  <th scope="col" className="px-6 py-2">
-                    Nome
-                  </th>
-                  <th scope="col" className="px-6 py-2">
-                    Quantidade de Produtos 
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {categories.length > 0 ? (
-                  categories.map((el, index) => (
-                    <tr className="w-full border-b border-gray-100" key={index}>
-                      <td className="px-4 py-2 border-r whitespace-nowrap">
-                        <div
-                          style={{ backgroundColor: el.color }}
-                          className="py-2 text-center rounded"
-                        ></div>
-                      </td>
-                      <td className="px-4 py-2 whitespace-nowrap">{el.name}</td>
-                      <td className="px-4 py-2 whitespace-nowrap">{el.id}</td>
-                    </tr>
-                  ))
-                ) : (
-                  <Skeleton count={2} />
-                )}
-              </tbody>
-            </table>
-          </div>
-        </div>
+    <div className="w-full px-3 py-2 border rounded shadow-sm">
+{categories.length > 0 ? (
+  categories.map((el, index) => (
+    <div className="w-full border-b border-gray-100" key={index}>
+      <div className="px-4 py-2 border-r whitespace-nowrap">
+        <div
+          style={{ backgroundColor: el.color }}
+          className="py-2 text-center rounded"
+        ></div>
       </div>
+      <div className="px-4 py-2 whitespace-nowrap">{el.name}</div>
+      <div className="px-4 py-2 whitespace-nowrap">{el.id}</div>
+    </div>
+  ))
+) : (
+
+    <Skeleton  height="2rem" className="w-full my-2" count={1} />
+)}
     </div>
   );
 }
 
 export default CategoryTable;
+
