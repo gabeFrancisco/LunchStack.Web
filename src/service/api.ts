@@ -27,7 +27,7 @@ api.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
     if(error.code === AxiosError.ERR_NETWORK){
-      alert("Houve um problema com a conexão aos nossos servidores! Contate o suporte ou tente mais tarde!")
+      // alert("Houve um problema com a conexão aos nossos servidores! Contate o suporte ou tente mais tarde!")
     }
     if (error.response.status === 401) {
       await api.post(`auth/refresh`).then((res) => {

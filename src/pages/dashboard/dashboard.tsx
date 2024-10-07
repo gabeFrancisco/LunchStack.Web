@@ -26,8 +26,7 @@ function DashboardPage() {
       >
         Fetch!
       </button>
-      <p>{result}</p>
-      
+      <p>{result}</p>      
     </div>
   );
 }
