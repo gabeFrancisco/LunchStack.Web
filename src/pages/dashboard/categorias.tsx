@@ -2,7 +2,7 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import CategoryTable from "../../components/Category/CategoryTable";
 import CategoryToolbar from "../../components/Category/CategoryToolbar";
 import { useEffect, useState } from "react";
-import Modal from 'react-modal'
+import Modal from "../../components/Modal";
 
 function CategoriasPage() {
   const [newCategoryModal, setNewCategoryModal] = useState(false);
@@ -20,10 +20,7 @@ function CategoriasPage() {
       />
       <CategoryToolbar newCategoryModalState={handleNewCategoryModal} />
       <CategoryTable />
-      <Modal isOpen={newCategoryModal} shouldCloseOnOverlayClick={true}>
-        Nova categoria!
-        <button onClick={handleNewCategoryModal}>Fechar</button>
-      </Modal>
+      {newCategoryModal && <Modal handleModal={handleNewCategoryModal}/>}
     </div>
   );
 }
