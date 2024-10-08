@@ -10,8 +10,8 @@ function CategoriasPage() {
     newCategoryModal ? setNewCategoryModal(false) : setNewCategoryModal(true);
 
   useEffect(() => {
-    console.log(newCategoryModal)
-  }, [newCategoryModal])
+    console.log(newCategoryModal);
+  }, [newCategoryModal]);
   return (
     <div>
       <SectionTitle
@@ -20,7 +20,20 @@ function CategoriasPage() {
       />
       <CategoryToolbar newCategoryModalState={handleNewCategoryModal} />
       <CategoryTable />
-      {newCategoryModal && <Modal handleModal={handleNewCategoryModal}/>}
+      {newCategoryModal && (
+        <Modal
+          toggleModal={handleNewCategoryModal}
+          toggleAction={() => {}}
+          title="Nova categoria"
+        >
+          <form>
+            <div className="flex flex-row w-full">
+              <label>Nome da categoria: </label>
+              <input type="text" name="name" id="name" placeholder="Nome" />
+            </div>
+          </form>
+        </Modal>
+      )}
     </div>
   );
 }
