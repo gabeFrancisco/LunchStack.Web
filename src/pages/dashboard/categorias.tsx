@@ -31,6 +31,10 @@ function CategoriasPage() {
               <label>Nome da categoria: </label>
               <input type="text" name="name" id="name" placeholder="Nome" />
             </div>
+            <div>
+              <label htmlFor="color">Cor</label>
+              <input type="color"/>
+            </div>
           </form>
         </Modal>
       )}

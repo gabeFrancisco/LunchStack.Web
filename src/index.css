@@ -15,3 +15,7 @@
     radial-gradient(142% 91% at -6% 74%, #ff0000ff 1%, #ff000000 99%),
     radial-gradient(142% 91% at 111% 84%, #00d8ffff 0%, #00adffff 100%);
 } */
+
+*{
+  font-family: "Oxygen", sans-serif;
+}

@@ -1,15 +1,14 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { getAllAsync } from "../../store/slices/categorySlice";
+import { getAllCategoriesAsync } from "../../store/slices/categorySlice";
 import Skeleton from "react-loading-skeleton";
-import { BiFoodMenu } from "react-icons/bi";
 import CategoryCard from "./CategoryCard";
 
 function CategoryTable() {
   const dispatch = useAppDispatch();
   const categories = useAppSelector((state) => state.categories.categoryList);
   useEffect(() => {
-    dispatch(getAllAsync());
+    dispatch(getAllCategoriesAsync());
   }, []);
   return (
     <div className="grid w-full grid-cols-3 gap-4">

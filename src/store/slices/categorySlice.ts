@@ -17,14 +17,26 @@ const initialState: CategoryState = {
   categoryList: new Array<Category>(),
 };
 
-export const getAllAsync = createAsyncThunk(
-  "categories/getAll", 
-  async () => 
-  await api.get("/categories").then((res) => {
-    if(res.status === 200){
-      return res.data;
-    }
-  })
+export const getAllCategoriesAsync = createAsyncThunk(
+  "categories/getAll",
+  async () =>
+    await api.get("/categories").then((res) => {
+      if (res.status === 200) {
+        return res.data;
+      }
+    })
+);
+
+export const addCategoryAsync = createAsyncThunk(
+  "categories/create",
+  async (data: Category, thunkAPI) => {
+    await api.post("/categories", data).then((res) => {
+      if (res.status === 200) {
+        thunkAPI.dispatch(getAllCategoriesAsync());
+        return res.data;
+      }
+    });
+  }
 );
 
 export const CategorySlice = createSlice({
@@ -32,9 +44,9 @@ export const CategorySlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getAllAsync.fulfilled, (state, action) => {
-      state.categoryList = action.payload
-    })
+    builder.addCase(getAllCategoriesAsync.fulfilled, (state, action) => {
+      state.categoryList = action.payload;
+    });
   },
 });
 
