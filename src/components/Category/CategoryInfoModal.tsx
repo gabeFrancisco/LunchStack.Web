@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { Category } from "../../models/Category";
-import Modal from "../Modal";
+import Modal from "../Modal/Modal";
 
 interface Props {
   handleClose: () => void;

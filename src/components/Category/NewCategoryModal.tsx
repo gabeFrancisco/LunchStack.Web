@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import Modal from "../Modal";
+import Modal from "../Modal/Modal";
 import { useAppDispatch } from "../../store/store";
 import { addCategoryAsync } from "../../store/slices/categorySlice";
 import { Category } from "../../models/Category";
