@@ -40,7 +40,7 @@ export const addCategoryAsync = createAsyncThunk(
 );
 
 export const CategorySlice = createSlice({
-  name: "Category",
+  name: "Categories",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
