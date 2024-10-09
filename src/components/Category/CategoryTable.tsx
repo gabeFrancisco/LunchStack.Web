@@ -18,7 +18,7 @@ function CategoryTable() {
             index={index}
             color={el.color}
             name={el.name}
-            quantity={el.id}
+            quantity={el.id!}
           />
         ))
       ) : (

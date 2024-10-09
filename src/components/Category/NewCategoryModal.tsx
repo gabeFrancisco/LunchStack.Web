@@ -1,18 +1,25 @@
 import { useFormik } from "formik";
 import Modal from "../Modal";
+import { useAppDispatch } from "../../store/store";
+import { addCategoryAsync } from "../../store/slices/categorySlice";
+import { Category } from "../../models/Category";
 
 interface Props {
   handleClose: () => void;
 }
 
 function NewCategoryModal(props: Props) {
+  const dispatch = useAppDispatch()
   const formik = useFormik({
     initialValues: {
       name: "",
       color: "#9999ff",
     },
+    validateOnChange: false,
+    enableReinitialize: false,
+    
     onSubmit: (values) => {
-      console.log(values)
+      dispatch(addCategoryAsync(values as Category)).then(props.handleClose)
     },
   });
   return (
@@ -22,7 +29,7 @@ function NewCategoryModal(props: Props) {
         toggleAction={() => {}}
         title="Nova categoria"
       >
-        <form>
+        <form onSubmit={formik.handleSubmit}>
           <div className="flex flex-row w-full">
             <label htmlFor="name">Nome da categoria: </label>
             <input
