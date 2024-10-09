@@ -9,7 +9,7 @@ interface Props {
 }
 
 function NewCategoryModal(props: Props) {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -17,53 +17,56 @@ function NewCategoryModal(props: Props) {
     },
     validateOnChange: false,
     enableReinitialize: false,
-    
+
     onSubmit: (values) => {
-      dispatch(addCategoryAsync(values as Category)).then(props.handleClose)
+      dispatch(addCategoryAsync(values as Category)).then(props.handleClose);
     },
   });
   return (
-    <div>
-      <Modal
-        toggleModal={props.handleClose}
-        toggleAction={() => {}}
-        title="Nova categoria"
-      >
-        <form onSubmit={formik.handleSubmit}>
-          <div className="flex flex-row w-full">
-            <label htmlFor="name">Nome da categoria: </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Nome"
-              value={formik.values.name}
-              onChange={formik.handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="color">Cor</label>
-            <input name="color" value={formik.values.color} onChange={formik.handleChange} id="color" type="color" />
-          </div>{" "}
-          <div className="flex flex-row justify-between p-2 lg:justify-center">
-            <button
-              type="button"
-              onClick={props.handleClose}
-              className="p-1 mr-2 text-white bg-red-500 rounded shadow hover:bg-red-600"
-            >
-              Cancelar
-            </button>
-            <button
-              type="button"
-              onClick={() => formik.handleSubmit()}
-              className="p-1 ml-2 text-white rounded shadow bg-primary hover:bg-blue-800"
-            >
-              Confirmar
-            </button>
-          </div>
-        </form>
-      </Modal>
-    </div>
+    <Modal
+      toggleModal={props.handleClose}
+      title="Nova categoria"
+    >
+      <form onSubmit={formik.handleSubmit}>
+        <div className="flex flex-row w-full">
+          <label htmlFor="name">Nome da categoria: </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Nome"
+            value={formik.values.name}
+            onChange={formik.handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="color">Cor</label>
+          <input
+            name="color"
+            value={formik.values.color}
+            onChange={formik.handleChange}
+            id="color"
+            type="color"
+          />
+        </div>{" "}
+        <div className="flex flex-row justify-between p-2 lg:justify-center">
+          <button
+            type="button"
+            onClick={props.handleClose}
+            className="p-1 mr-2 text-white bg-red-500 rounded shadow hover:bg-red-600"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            onClick={() => formik.handleSubmit()}
+            className="p-1 ml-2 text-white rounded shadow bg-primary hover:bg-blue-800"
+          >
+            Confirmar
+          </button>
+        </div>
+      </form>
+    </Modal>
   );
 }
 

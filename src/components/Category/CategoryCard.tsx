@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { BiFoodMenu } from "react-icons/bi";
+import CategoryInfoModal from "./CategoryInfoModal";
 
 interface Props {
   index: number;
@@ -8,9 +10,13 @@ interface Props {
 }
 
 function CategoryCard(props: Props) {
+  const [infoModal, setInfoModal] = useState(false);
+  const handleInfoModal = () =>
+    infoModal ? setInfoModal(false) : setInfoModal(true);
   return (
     <div
-      className="flex flex-row justify-between flex-grow w-full m-1 transition ease-in-out rounded shadow cursor-pointer hover:bg-slate-50 hover:-translate-y-2 hover:"
+      onClick={handleInfoModal}
+      className="relative flex flex-row justify-between w-full m-1 rounded shadow cursor-pointer hover:bg-slate-200"
       key={props.index}
     >
       <div className="mr-5">
@@ -24,6 +30,12 @@ function CategoryCard(props: Props) {
         <BiFoodMenu className="mr-1" />
         {props.quantity}
       </div>
+      {infoModal && (
+        <CategoryInfoModal
+          handleClose={handleInfoModal}
+          category={{ name: props.name, color: props.color }}
+        />
+      )}
     </div>
   );
 }
