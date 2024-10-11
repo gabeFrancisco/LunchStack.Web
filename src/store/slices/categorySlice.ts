@@ -28,7 +28,7 @@ export const getAllCategoriesAsync = createAsyncThunk(
 );
 
 export const addCategoryAsync = createAsyncThunk(
-  "categories/create",
+  "categories/add",
   async (data: Category, thunkAPI) => {
     await api.post("/categories", data).then((res) => {
       if (res.status === 200) {

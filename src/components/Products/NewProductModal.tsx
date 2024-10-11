@@ -10,7 +10,7 @@ interface Props {
 
 function NewProductModal(props: Props) {
   const dispatch = useAppDispatch();
-  const categories = useAppSelector(state => state.categories.categoryList);
+  const categories = useAppSelector(state => state?.categories.categoryList);
   useEffect(() => {
     if(categories.length <= 0){
       dispatch(getAllCategoriesAsync())
@@ -23,7 +23,9 @@ function NewProductModal(props: Props) {
       quantity: 0,
       price: 0,
     },
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      console.log(values)
+    },
   });
   return (
     <Modal toggleModal={props.handleClose} title="Novo produto">
@@ -53,8 +55,8 @@ function NewProductModal(props: Props) {
           />
         </div>
         <div className="flex flex-row w-full m-2">
-        <label htmlFor="category">Categoria:</label>
-          <select>
+        <label htmlFor="categoryId">Categoria:</label>
+          <select id="categoryId" name="categoryId" value={formik.values.categoryId} onChange={formik.handleChange}>
             {categories.map((el, index) => (
               <option key={index} value={el.id}>{el.name}</option>
             ))}
@@ -72,7 +74,22 @@ function NewProductModal(props: Props) {
             className="border"
           />
         </div>
-        <button onClick={props.handleClose}>Fechar</button>
+        <div className="flex flex-row justify-between p-2 lg:justify-center">
+          <button
+            type="button"
+            onClick={props.handleClose}
+            className="p-1 mr-2 text-white bg-red-500 rounded shadow hover:bg-red-600"
+          >
+            Cancelar
+          </button>
+          <button
+            type="button"
+            onClick={() => formik.handleSubmit()}
+            className="p-1 ml-2 text-white rounded shadow bg-primary hover:bg-blue-800"
+          >
+            Confirmar
+          </button>
+        </div>
       </form>
     </Modal>
   );

@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Product } from "../../models/Product";
 import api from "../../service/api";
+import { getAllCategoriesAsync } from "./categorySlice";
 
 export interface ProductState {
   product: Product,
@@ -15,6 +16,18 @@ export const getAllProductsAsync = createAsyncThunk(
         return res.data;
       }
     })
+)
+
+export const addProductAynsc = createAsyncThunk(
+  "products/add",
+  async (data: Product, thunkAPI) => {
+    await api.post("/products", data).then((res) => {
+      if(res.status === 200){
+        thunkAPI.dispatch(getAllCategoriesAsync());
+        return res.data;
+      }
+    })
+  }
 )
 
 const initialState: ProductState = {
