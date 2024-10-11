@@ -1,6 +1,8 @@
 import { useFormik } from "formik";
-import { useAppDispatch } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 import Modal from "../Modal/Modal";
+import { useEffect } from "react";
+import { getAllCategoriesAsync } from "../../store/slices/categorySlice";
 
 interface Props {
   handleClose: () => void;
@@ -8,6 +10,12 @@ interface Props {
 
 function NewProductModal(props: Props) {
   const dispatch = useAppDispatch();
+  const categories = useAppSelector(state => state.categories.categoryList);
+  useEffect(() => {
+    if(categories.length <= 0){
+      dispatch(getAllCategoriesAsync())
+    }
+  }, [])
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -47,7 +55,9 @@ function NewProductModal(props: Props) {
         <div className="flex flex-row w-full m-2">
         <label htmlFor="category">Categoria:</label>
           <select>
-            <option>Burgers</option>
+            {categories.map((el, index) => (
+              <option key={index} value={el.id}>{el.name}</option>
+            ))}
           </select>
         </div>
         <div className="flex flex-row w-full m-2">
