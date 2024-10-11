@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../store/store";
 import Modal from "../Modal/Modal";
 import { useEffect } from "react";
 import { getAllCategoriesAsync } from "../../store/slices/categorySlice";
+import { addProductAynsc } from "../../store/slices/productSlice";
 
 interface Props {
   handleClose: () => void;
@@ -10,21 +11,27 @@ interface Props {
 
 function NewProductModal(props: Props) {
   const dispatch = useAppDispatch();
-  const categories = useAppSelector(state => state?.categories.categoryList);
+  const categories = useAppSelector(state => state.categories?.categoryList);
   useEffect(() => {
-    if(categories.length <= 0){
       dispatch(getAllCategoriesAsync())
-    }
   }, [])
   const formik = useFormik({
     initialValues: {
       name: "",
-      categoryId: 0,
+      categoryId: categories[0]?.id,
       quantity: 0,
       price: 0,
     },
+    validateOnChange: false,
+    enableReinitialize: true,
     onSubmit: (values) => {
       console.log(values)
+      dispatch(addProductAynsc({
+        name: values.name,
+        quantity: values.quantity,
+        price: values.price,
+        categoryId: values.categoryId!
+      })).then(props.handleClose)
     },
   });
   return (
