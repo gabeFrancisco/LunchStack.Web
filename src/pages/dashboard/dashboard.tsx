@@ -1,11 +1,11 @@
 import { useState } from "react";
-import api from "../../service/api";
+import ajaxAdapter from "../../service/ajaxAdapter";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 function DashboardPage() {
   const [result, setResult] = useState("Ready!");
   const fetch = () => {
-    api.get("/auth").then((res) => {
+    ajaxAdapter.get("/auth").then((res) => {
       if (res.status === 200) {
         setResult("Authorized!");
       } else {

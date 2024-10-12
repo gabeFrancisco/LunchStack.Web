@@ -15,6 +15,7 @@ function CategoryTable() {
       {categories.length > 0 ? (
         categories.map((el, index) => (
           <CategoryCard
+          key={index}
             index={index}
             color={el.color}
             name={el.name}

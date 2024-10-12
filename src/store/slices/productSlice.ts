@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Product } from "../../models/Product";
-import api from "../../service/api";
+import ajaxAdapter from "../../service/ajaxAdapter";
 
 export interface ProductState {
   product: Product,
@@ -10,7 +10,7 @@ export interface ProductState {
 export const getAllProductsAsync = createAsyncThunk(
   "products/getAll",
   async () => 
-    await api.get("/products").then(res => {
+    await ajaxAdapter.get("/products").then(res => {
       if(res.status === 200){
         return res.data;
       }
@@ -19,10 +19,10 @@ export const getAllProductsAsync = createAsyncThunk(
 
 export const addProductAynsc = createAsyncThunk(
   "products/add",
-  async (data: Product, thunkAPI) => {
-    await api.post("/products", data).then((res) => {
+  async (data: Product, thunkajaxAdapter) => {
+    await ajaxAdapter.post("/products", data).then((res) => {
       if(res.status === 200){
-        thunkAPI.dispatch(getAllProductsAsync());
+        thunkajaxAdapter.dispatch(getAllProductsAsync());
         return res.data;
       }
     })

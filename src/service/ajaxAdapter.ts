@@ -5,13 +5,13 @@ export const urls = {
   dev: "http://localhost:5187/api",
 };
 
-const api = axios.create({
+const ajaxAdapter = axios.create({
   baseURL: urls.dev,
   timeout: 10000,
 });
 
-api.defaults.withCredentials = true;
-api.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
+ajaxAdapter.defaults.withCredentials = true;
+ajaxAdapter.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
   try {
     // config.headers["Authorization"] = `Bearer ${authService.getToken()}`;
 
@@ -22,7 +22,7 @@ api.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
   }
 });
 
-api.interceptors.response.use(
+ajaxAdapter.interceptors.response.use(
   undefined,
   async (error) => {
     const originalRequest = error.config;
@@ -30,7 +30,7 @@ api.interceptors.response.use(
       // alert("Houve um problema com a conexão aos nossos servidores! Contate o suporte ou tente mais tarde!")
     }
     if (error.response.status === 401) {
-      await api.post(`auth/refresh`).then((res) => {
+      await ajaxAdapter.post(`auth/refresh`).then((res) => {
         if (res.status === 200) {
           return;
         }
@@ -39,12 +39,12 @@ api.interceptors.response.use(
         authService.logout();
         location.href = "/login"
       })
-      return api(originalRequest);
+      return ajaxAdapter(originalRequest);
     }
     return Promise.reject(error)
   }
 );
 
 const config: AxiosRequestConfig = {};
-api(config);
-export default api;
+ajaxAdapter(config);
+export default ajaxAdapter;

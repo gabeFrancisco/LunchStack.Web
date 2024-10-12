@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Table } from '../../models/Table'
+import ajaxAdapter from "../../service/ajaxAdapter";
 
 export interface TableState{
   table: Table;
@@ -16,11 +17,25 @@ const initialState: TableState = {
   tableList: new Array<Table>()
 }
 
+export const getAllTablesAsync = createAsyncThunk(
+  "tables/getAll",
+  async () => 
+    await ajaxAdapter.get("/tables").then((res) => {
+      if(res.status === 200){
+        return res.data;
+      }
+    })
+)
+
 export const TableSlice = createSlice({
   name: "Tables",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {}
+  extraReducers: (builder) => {
+    builder.addCase(getAllTablesAsync.fulfilled, (state, action) => {
+      state.tableList = action.payload
+    })
+  }
 })
 
 export default TableSlice.reducer;

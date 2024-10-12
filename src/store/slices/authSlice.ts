@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { User } from "../../models/User";
 import authService from "../../service/authService";
-import api from "../../service/api";
+import ajaxAdapter from "../../service/ajaxAdapter";
 
 export interface AuthState {
   user: User,
@@ -27,14 +27,14 @@ const initialState: AuthState = {
 export const fetchLogin = createAsyncThunk(
   "auth/login/fetch",
   async (data: {}) => {
-    const response = (await api
+    const response = (await ajaxAdapter
       .post(`/auth/login`, data)
       .then(res => res.data)
     ) as AuthState
 
     authService.saveUser(response.user);
 
-    api.defaults.headers.common["Authorization"] = `Bearer ${response.token}`
+    ajaxAdapter.defaults.headers.common["Authorization"] = `Bearer ${response.token}`
     return response
   }
 )
@@ -42,7 +42,7 @@ export const fetchLogin = createAsyncThunk(
 export const getActualUser = createAsyncThunk(
   "auth/actualUser",
   async () => {
-    const response =  await api.get("/user/actualUser").then(res => res.data);
+    const response =  await ajaxAdapter.get("/user/actualUser").then(res => res.data);
     authService.saveUser(response.user);
     return response;
   }

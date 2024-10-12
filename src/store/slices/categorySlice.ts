@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Category } from "../../models/Category";
-import api from "../../service/api";
+import ajaxAdapter from "../../service/ajaxAdapter";
 
 export interface CategoryState {
   category: Category;
@@ -20,7 +20,7 @@ const initialState: CategoryState = {
 export const getAllCategoriesAsync = createAsyncThunk(
   "categories/getAll",
   async () =>
-    await api.get("/categories").then((res) => {
+    await ajaxAdapter.get("/categories").then((res) => {
       if (res.status === 200) {
         return res.data;
       }
@@ -29,10 +29,10 @@ export const getAllCategoriesAsync = createAsyncThunk(
 
 export const addCategoryAsync = createAsyncThunk(
   "categories/add",
-  async (data: Category, thunkAPI) => {
-    await api.post("/categories", data).then((res) => {
+  async (data: Category, thunkajaxAdapter) => {
+    await ajaxAdapter.post("/categories", data).then((res) => {
       if (res.status === 200) {
-        thunkAPI.dispatch(getAllCategoriesAsync());
+        thunkajaxAdapter.dispatch(getAllCategoriesAsync());
         return res.data;
       }
     });

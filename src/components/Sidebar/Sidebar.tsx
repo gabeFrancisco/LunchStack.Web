@@ -2,11 +2,8 @@ import {
   BiBarChart,
   BiCategory,
   BiChart,
-  BiCheese,
   BiDish,
-  BiDollar,
   BiFoodMenu,
-  BiFoodTag,
   BiGroup,
   BiTable,
   BiUser,
@@ -73,8 +70,8 @@ function Sidebar() {
         <div>
           <p className="pl-1 bg-gray-200">Estabelecimento</p>
           <div className="px-3 pt-1 pb-3">
-            {shop.map((el) => (
-              <li className="">
+            {shop.map((el, index) => (
+              <li key={index} className="">
                 <Link
                   className="flex flex-row items-center my-0.5 hover:text-primary"
                   to={el.url}
@@ -88,8 +85,8 @@ function Sidebar() {
         </div>
           <p className="pl-1 bg-gray-200">Configurações</p>
           <div className="px-3 pt-1 pb-3">
-            {config.map((el) => (
-              <li>
+            {config.map((el, index) => (
+              <li key={index}>
                 <Link
                   className="flex flex-row items-center my-0.5 hover:text-primary"
                   to={el.url}
