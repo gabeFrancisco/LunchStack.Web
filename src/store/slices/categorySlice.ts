@@ -29,10 +29,10 @@ export const getAllCategoriesAsync = createAsyncThunk(
 
 export const addCategoryAsync = createAsyncThunk(
   "categories/add",
-  async (data: Category, thunkajaxAdapter) => {
+  async (data: Category, thunkAPI) => {
     await ajaxAdapter.post("/categories", data).then((res) => {
       if (res.status === 200) {
-        thunkajaxAdapter.dispatch(getAllCategoriesAsync());
+        thunkAPI.dispatch(getAllCategoriesAsync());
         return res.data;
       }
     });

@@ -27,6 +27,18 @@ export const getAllTablesAsync = createAsyncThunk(
     })
 )
 
+export const addTableAsync = createAsyncThunk(
+  "tables/add",
+  async (data: Table, thunkAPI) => {
+    await ajaxAdapter.post("/tables", data).then(res => {
+      if(res.status === 200){
+        thunkAPI.dispatch(getAllTablesAsync())
+        return res.data;
+      }
+    })
+  }
+)
+
 export const TableSlice = createSlice({
   name: "Tables",
   initialState,
