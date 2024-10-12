@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { BiPurchaseTag, BiTable } from "react-icons/bi";
+import { BiChair, BiPurchaseTag } from "react-icons/bi";
+import TableInfoModal from "./TableInfoModal";
 
 interface Props {
   number: number;
@@ -13,24 +14,24 @@ function TableCard(props: Props) {
     infoModal ? setInfoModal(false) : setInfoModal(true);
   return ( <div>
       <div
-        className="flex flex-row w-full m-1 rounded shadow cursor-pointer justify-stretch hover:bg-slate-200"
+        className="flex flex-row w-full m-1 rounded shadow cursor-pointer justify-stretch hover:bg-blue-50"
         onClick={handleInfoModal}
       >
         <div className="flex flex-row items-center p-5 text-lg font-bold border-r">
          <BiPurchaseTag className="mr-1"/>{props.number}
         </div>
         <div className="flex flex-row items-center p-5 text-lg font-bold border-r">
-          <BiTable className="mr-1" />
+          <BiChair className="mr-1" />
           {props.chairs}
         </div>
         <div className="px-4 py-4 text-xl font-bold truncate">{props.isBusy}</div>
       </div>
-      {/* {infoModal && (
-        <CategoryInfoModal
+      {infoModal && (
+        <TableInfoModal
           handleClose={handleInfoModal}
-          category={{ name: props.name, color: props.color }}
+          table={{chairs: props.chairs, isBusy: props.isBusy, number: props.number}}
         />
-      )} */}
+      )}
   </div> );
 }
 
