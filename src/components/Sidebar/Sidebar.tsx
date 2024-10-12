@@ -38,7 +38,7 @@ function Sidebar() {
     },
     {
       name: "Mesas",
-      url: "mesas",
+      url: "dashboard/mesas",
       icon: <BiTable />,
     },
     {
