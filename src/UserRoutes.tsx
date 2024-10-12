@@ -19,12 +19,15 @@ function UserRoutes() {
   }, []);
 
   return (
-    <div className="flex flex-row flex-grow">
+    <div className="flex flex-row flex-grow bg-slate-50">
       <Sidebar />
       <div className="flex flex-col w-full">
         <Header />
-        <div className="p-5 overflow-y-visible text-gray-500">
+        <div className="p-2 overflow-y-visible text-gray-500">
+          <div className="p-3 m-3 my-0 bg-white rounded shadow">
           <Outlet />
+
+          </div>
         </div>
       </div>
     </div>

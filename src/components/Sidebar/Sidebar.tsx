@@ -67,7 +67,7 @@ function Sidebar() {
       <div className="w-full px-3 py-3 text-white shadow bg-primary">
         <p>Lunchstack</p>
       </div>
-      <ul className="w-full py-3 border-r">
+      <ul className="w-full py-3 m-2 bg-white border rounded shadow">
         <div>
           <p className="pl-1 bg-gray-200">Estabelecimento</p>
           <div className="px-3 pt-1 pb-3">
