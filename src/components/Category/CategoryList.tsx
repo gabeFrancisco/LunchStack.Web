@@ -4,7 +4,7 @@ import { getAllCategoriesAsync } from "../../store/slices/categorySlice";
 import Skeleton from "react-loading-skeleton";
 import CategoryCard from "./CategoryCard";
 
-function CategoryTable() {
+function CategoryList() {
   const dispatch = useAppDispatch();
   const categories = useAppSelector((state) => state.categories.categoryList);
   useEffect(() => {
@@ -29,4 +29,4 @@ function CategoryTable() {
   );
 }
 
-export default CategoryTable;
+export default CategoryList;

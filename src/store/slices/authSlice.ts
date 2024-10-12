@@ -62,7 +62,6 @@ export const AuthSlice = createSlice({
     });
     builder.addCase(getActualUser.fulfilled, (state, action) => {
       state.user = action.payload
-      console.log(action.payload)
     })
   }
 })

@@ -1,6 +1,6 @@
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
-import CategoryTable from "../../components/Category/CategoryTable";
 import CategoryToolbar from "../../components/Category/CategoryToolbar";
+import CategoryList from "../../components/Category/CategoryList";
 import { useEffect, useState } from "react";
 import NewCategoryModal from "../../components/Category/NewCategoryModal";
 
@@ -19,7 +19,7 @@ function CategoriasPage() {
         subtitle="Gerencie todas as suas categorias nessa seção!"
       />
       <CategoryToolbar newCategoryModalState={handleNewCategoryModal} />
-      <CategoryTable />
+      <CategoryList />
       {newCategoryModal && (
         <NewCategoryModal handleClose={handleNewCategoryModal}/>
       )}
