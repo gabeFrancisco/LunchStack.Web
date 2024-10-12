@@ -7,7 +7,7 @@ interface SectionTitleProps {
 
 const SectionTitle = (props: SectionTitleProps) => {
   return (
-    <div className="py-2 m-0 mb-2 sectionTitle text-stone-600">
+    <div className="py-2 sectionTitle text-stone-600">
       <h2 className="mx-2 text-2xl font-bold">{props.title}</h2>
       <h3 className="mx-2 text-md">{props.subtitle}</h3>
       <div className="growingLine"></div>

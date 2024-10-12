@@ -10,6 +10,7 @@ import {
   BiWrench,
 } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/logo.png"
 
 function Sidebar() {
   const shop = [
@@ -62,11 +63,11 @@ function Sidebar() {
     },
   ];
   return (
-    <div className="sticky top-0 w-1/6 text-gray-500">
+    <div className="sticky top-0 w-1/6 h-screen text-gray-500">
       <div className="w-full px-3 py-3 text-white shadow bg-primary">
-        Lunckstack.Web
+        <p>Lunchstack</p>
       </div>
-      <ul className="sticky top-0 w-full py-3 overflow-y-auto border-r">
+      <ul className="w-full py-3 border-r">
         <div>
           <p className="pl-1 bg-gray-200">Estabelecimento</p>
           <div className="px-3 pt-1 pb-3">
