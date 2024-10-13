@@ -16,7 +16,7 @@ function CategoryCard(props: Props) {
   return (
     <div key={props.index}>
       <div
-        className="relative flex flex-row justify-between w-full m-1 rounded shadow cursor-pointer hover:bg-slate-200"
+        className="relative flex flex-row justify-between w-full m-1 transition ease-in-out rounded shadow cursor-pointer hover:-translate-y-1 hover:shadow-lg"
         onClick={handleInfoModal}
       >
         <div className="mr-5">

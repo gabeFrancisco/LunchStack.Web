@@ -7,7 +7,7 @@ function ProductToolbar(props: Props) {
     <div className="flex flex-row w-full py-2 border-b">
       <button
         onClick={props.newProductModalState}
-        className="px-3 py-1 text-sm text-white rounded bg-primary hover:bg-blue-900"
+        className="transition ease-in-out px-3 py-1 text-sm text-white rounded shadow shadow-primary bg-primary hover:bg-blue-900"
       >
         Novo produto!
       </button>

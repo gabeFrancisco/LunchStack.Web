@@ -10,7 +10,7 @@ function OrderSheetToolbar(props: Props) {
     <div className="flex flex-row w-full py-2 borber-b">
       <button
         onClick={() => navigate("novoPedido")}
-        className="px-3 py-1 text-sm text-white rounded bg-primary hover:bg-blue-900"
+        className="transition ease-in-out px-3 py-1 shadow shadow-primary text-sm text-white rounded bg-primary hover:bg-blue-900"
       >Novo pedido!</button>
     </div>
   );

@@ -69,7 +69,7 @@ function Sidebar() {
       </div>
       <ul className="w-full py-3 m-2 bg-white border rounded shadow">
         <div>
-          <p className="pl-1 bg-gray-200">Estabelecimento</p>
+          <p className="pl-1 truncate bg-gray-200">Estabelecimento</p>
           <div className="px-3 pt-1 pb-3">
             {shop.map((el, index) => (
               <li key={index} className="">
@@ -77,14 +77,14 @@ function Sidebar() {
                   className="flex flex-row items-center my-0.5 hover:text-primary"
                   to={el.url}
                 >
-                  <div className="mr-2 text-xl">{el.icon}</div>
-                  {el.name}
+                  <div className="my-1 mr-0 text-xl lg:mr-2 lg:my-0">{el.icon}</div>
+                  <span className="hidden lg:block">{el.name}</span>
                 </Link>
               </li>
             ))}
           </div>
         </div>
-          <p className="pl-1 bg-gray-200">Configurações</p>
+          <p className="pl-1 truncate bg-gray-200">Configurações</p>
           <div className="px-3 pt-1 pb-3">
             {config.map((el, index) => (
               <li key={index}>
@@ -92,8 +92,8 @@ function Sidebar() {
                   className="flex flex-row items-center my-0.5 hover:text-primary"
                   to={el.url}
                 >
-                  <div className="mr-2 text-xl">{el.icon}</div>
-                  {el.name}
+                  <div className="my-1 mr-0 text-xl lg:mr-2 lg:my-0">{el.icon}</div>
+                  <span className="hidden lg:block">{el.name}</span>
                 </Link>
               </li>
             ))}

@@ -17,7 +17,7 @@ const SectionTitle = (props: SectionTitleProps) => {
         <button
           title="Voltar"
           onClick={handleBackPage}
-          className="px-2 py-1 mr-3 text-white rounded shadow bg-primary"
+          className="px-2 py-1 mr-3 text-white rounded shadow shadow-primary bg-primary"
         >
           <BiArrowBack></BiArrowBack>
         </button>
