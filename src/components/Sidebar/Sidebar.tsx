@@ -31,7 +31,7 @@ function Sidebar() {
     },
     {
       name: "Pedidos",
-      url: "pedidos",
+      url: "dashboard/pedidos",
       icon: <BiDish />,
     },
     {

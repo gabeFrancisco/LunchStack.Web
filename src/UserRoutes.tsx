@@ -24,7 +24,7 @@ function UserRoutes() {
       <div className="flex flex-col w-full">
         <Header />
         <div className="p-2 overflow-y-visible text-gray-500">
-          <div className="p-3 m-3 my-0 bg-white rounded shadow">
+          <div className="p-3 m-3 my-0 bg-white border rounded shadow">
           <Outlet />
 
           </div>

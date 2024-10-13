@@ -4,13 +4,15 @@ import { AuthSlice } from "./slices/authSlice";
 import { CategorySlice } from "./slices/categorySlice";
 import { ProductSlice } from "./slices/productSlice";
 import { TableSlice } from "./slices/tableSlice";
+import { OrderSheetSlice } from "./slices/orderSheetSlice";
 
 export const store = configureStore({
   reducer: {
     auth: AuthSlice.reducer,
     categories: CategorySlice.reducer,
     products: ProductSlice.reducer,
-    tables: TableSlice.reducer
+    tables: TableSlice.reducer,
+    orderSheets: OrderSheetSlice.reducer
   },
   devTools: true,
 }); 
