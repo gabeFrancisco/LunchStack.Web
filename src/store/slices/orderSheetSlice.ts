@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk} from "@reduxjs/toolkit"
 import { OrderSheet } from "../../models/OrderSheet"
 import { OrderState } from "../../models/enums/OrderState"
 import { ProductOrder } from "../../models/ProductOrder"
+import ajaxAdapter from "../../service/ajaxAdapter"
 
 export interface OrderSheetState{
   orderSheet: OrderSheet,
@@ -17,11 +18,25 @@ const initialState: OrderSheetState = {
   orderSheetList: new Array<OrderSheet>()
 }
 
+export const getAllOrderSheetsAsync = createAsyncThunk(
+  "orderSheets/add",
+  async () => 
+    await ajaxAdapter.get("/ordersheets").then((res) => {
+      if(res.status === 200){
+        return res.data;
+      }
+    })
+)
+
 export const OrderSheetSlice = createSlice({
   name: "OrderSheets",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {}
+  extraReducers: (builder) => {
+    builder.addCase(getAllOrderSheetsAsync.fulfilled, (state, action) => {
+      state.orderSheetList = action.payload
+    })
+  }
 })
 
 export default OrderSheetSlice.reducer;

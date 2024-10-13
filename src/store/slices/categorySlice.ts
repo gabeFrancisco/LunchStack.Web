@@ -14,7 +14,7 @@ const initialState: CategoryState = {
     color: "",
     workgroupId: 0,
   },
-  categoryList: new Array<Category>(),
+  categoryList: new Array<Category>(),   
 };
 
 export const getAllCategoriesAsync = createAsyncThunk(
