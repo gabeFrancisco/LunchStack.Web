@@ -9,6 +9,7 @@ import CategoriasPage from "./pages/dashboard/categorias";
 import 'react-loading-skeleton/dist/skeleton.css'
 import MesasPage from "./pages/dashboard/mesas";
 import PedidosPage from "./pages/dashboard/pedidos";
+import NovoPedidoPage from "./pages/dashboard/novoPedido";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/dashboard/categorias" element={<CategoriasPage/>}/>
             <Route path="/dashboard/mesas" element={<MesasPage/>}/>
             <Route path="/dashboard/pedidos" element={<PedidosPage/>}/>
+            <Route path="/dashboard/pedidos/novoPedido" element={<NovoPedidoPage/>}/>
 
             {/* Not found route */}
             <Route path="*" element={<div>Page not found!</div>}/>
