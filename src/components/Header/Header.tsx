@@ -14,7 +14,7 @@ function Header() {
       <div className="text-primary">LunchStack</div>
       <div className="flex flex-row items-center">
         <small>Bem vindo {user?.username}</small>
-        <button title="Sair py-1">
+        <button title="Sair">
           <BiPowerOff className="mx-2 text-xl hover:text-yellow-200" />
         </button>
       </div>
