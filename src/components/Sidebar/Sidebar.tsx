@@ -63,11 +63,8 @@ function Sidebar() {
     },
   ];
   return (
-    <div className="sticky top-0 w-1/6 h-screen text-gray-500">
-      <div className="w-full px-3 py-3 text-white shadow bg-primary">
-        <p>Lunchstack</p>
-      </div>
-      <ul className="w-full py-3 m-2 bg-white border rounded shadow">
+    <div className="sticky w-1/6 text-gray-500 -top-10">
+      <ul className="sticky w-full py-3 m-2 bg-white border rounded shadow top-14">
         <div>
           <p className="pl-1 truncate bg-gray-200">Estabelecimento</p>
           <div className="px-3 pt-1 pb-3">

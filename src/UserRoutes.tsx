@@ -13,20 +13,19 @@ function UserRoutes() {
   useLayoutEffect(() => {
     dispatch(getActualUser()).then(() => {
       if (user === undefined) {
-        navigate("/login")
+        navigate("/login");
       }
-    })
+    });
   }, []);
 
   return (
-    <div className="flex flex-row flex-grow bg-slate-50">
-      <Sidebar />
-      <div className="flex flex-col w-full">
-        <Header />
-        <div className="p-2 overflow-y-visible text-gray-500">
-          <div className="p-3 m-3 my-0 bg-white border rounded shadow">
-          <Outlet />
-
+    <div className="flex flex-col bg-slate-50">
+      <Header />
+      <div className="flex flex-row w-full">
+        <Sidebar />
+        <div className="w-full p-2 overflow-y-visible text-gray-500">
+          <div className="p-3 m-3 my-0 overflow-y-scroll bg-white border rounded shadow">
+            <Outlet />
           </div>
         </div>
       </div>

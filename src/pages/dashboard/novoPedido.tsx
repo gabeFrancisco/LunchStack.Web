@@ -1,19 +1,93 @@
 import { useFormik } from "formik";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import { useAppDispatch, useAppSelector } from "../../store/store";
+import Skeleton from "react-loading-skeleton";
+import { useEffect } from "react";
+import { getAllTablesAsync } from "../../store/slices/tableSlice";
 
 function NovoPedidoPage() {
+  const dispatch = useAppDispatch();
+  const tables = useAppSelector((state) =>
+    state.tables.tableList.filter((table) => table.isBusy === false)
+  );
+
+  useEffect(() => {
+    dispatch(getAllTablesAsync());
+  }, []);
+
   const formik = useFormik({
     initialValues: {},
-    onSubmit: (values) => {
+    onSubmit: (values) => {},
+  });
+  return (
+    <div>
+      <SectionTitle
+        title="Novo pedido"
+        subtitle="Crie um novo pedido para o seu negócio nesta seção"
+        backRoute="/dashboard/pedidos"
+      />
+      <form
+        className="grid grid-cols-2 p-2 my-2"
+        onSubmit={formik.handleSubmit}
+      >
 
-    }
-  })
-  return ( <div>
-    <SectionTitle title="Novo pedido" subtitle="Crie um novo pedido para o seu negócio nesta seção" backRoute="/dashboard/pedidos"/>
-    <form onSubmit={formik.handleSubmit}>
-      
-    </form>
-  </div> );
+        <div>
+          <label
+            className="absolute z-10 px-1 ml-3 -mt-1 text-sm font-bold text-gray-400 bg-white rounded"
+            htmlFor="c.name"
+          >
+            Cliente
+          </label>
+          <div className="px-3 py-5 m-2 border rounded">
+            <div>
+              <label
+                className="absolute z-10 px-1 ml-3 -mt-2 text-sm text-gray-400 bg-white rounded"
+                htmlFor="c.name"
+              >
+                Nome
+              </label>
+              <input type="text" className="p-1 border rounded" />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label
+            className="absolute z-10 px-1 ml-3 -mt-1 text-sm font-bold text-gray-400 bg-white rounded"
+            htmlFor="c.name"
+          >
+            Produtos
+          </label>
+          <div className="px-3 py-5 m-2 border rounded">
+            <div>
+              <label
+                className="absolute z-10 px-1 ml-3 -mt-2 text-sm text-gray-400 bg-white rounded"
+                htmlFor="c.name"
+              >
+                Nome
+              </label>
+              <input type="text" className="p-1 border rounded" />
+            </div>
+          </div>
+        </div>
+        
+        <div className="flex flex-row">
+          <label htmlFor="tables">Mesas disponíveis:</label>
+          {tables.length > 0 ? (
+            <select>
+              {tables.map((el, index) => (
+                <option key={index} value={el.id!}>
+                  {el.number}
+                </option>
+              ))}
+            </select>
+          ) : (
+            <Skeleton />
+          )}
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default NovoPedidoPage;
