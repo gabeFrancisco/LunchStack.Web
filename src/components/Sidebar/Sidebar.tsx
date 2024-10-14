@@ -64,7 +64,7 @@ function Sidebar() {
   ];
   return (
     <div className="sticky w-1/6 text-gray-500 -top-10">
-      <ul className="sticky w-full py-3 m-2 bg-white border rounded shadow top-14">
+      <ul className="sticky flex flex-row w-full py-3 m-2 bg-white border rounded-lg shadow-lg md:flex-col border-slate-100 top-14">
         <div>
           <p className="pl-1 truncate bg-gray-200">Estabelecimento</p>
           <div className="px-3 pt-1 pb-3">

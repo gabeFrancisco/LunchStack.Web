@@ -62,7 +62,7 @@ function LoginPage() {
           <button
             type="button"
             onClick={() => formik.handleSubmit()}
-            className="px-3 py-1 text-white rounded bg-primary hover:bg-blue-900"
+            className="btn-primary"
           >
             Entrar!
           </button>

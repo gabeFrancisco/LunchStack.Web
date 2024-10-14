@@ -12,6 +12,15 @@ export interface OrderSheetState{
 const initialState: OrderSheetState = {
   orderSheet: {
     orderState: OrderState.ON_PREPARATION,
+    table: {
+      chairs: 0,
+      isBusy: false,
+      number: 0,
+    },
+    customer: {
+      name: "",
+    },
+    customerId: 0,
     productOrders: new Array<ProductOrder>(),
     tableId: 0,
   },

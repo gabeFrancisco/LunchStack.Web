@@ -24,7 +24,7 @@ function UserRoutes() {
       <div className="flex flex-row w-full">
         <Sidebar />
         <div className="w-full p-2 overflow-y-visible text-gray-500">
-          <div className="p-3 m-3 my-0 overflow-y-scroll bg-white border rounded shadow">
+          <div className="p-3 m-3 my-0 overflow-y-scroll bg-white border rounded-lg shadow-lg border-slate-100">
             <Outlet />
           </div>
         </div>

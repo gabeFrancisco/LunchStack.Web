@@ -19,3 +19,26 @@
 *{
   font-family: "Oxygen", sans-serif;
 }
+
+
+@layer components{
+  .btn{
+    @apply px-3 py-1 text-sm text-gray-500 transition ease-in-out border rounded shadow bg-gray-50 shadow-gray-300 hover:bg-gray-200;
+  }
+
+  .btn-primary{
+    @apply px-3 py-1 text-sm text-white transition ease-in-out rounded shadow shadow-primary bg-primary hover:bg-blue-900;
+  }
+
+  .btn-green{
+    @apply px-3 py-1 text-sm text-white transition ease-in-out rounded shadow bg-emerald-500 shadow-emerald-300 hover:bg-emerald-700;
+  }
+
+  .btn-yellow{
+    @apply px-3 py-1 text-sm text-white transition ease-in-out bg-yellow-400 rounded shadow shadow-yellow-300 hover:bg-yellow-600;
+  }
+  
+  .btn-red{
+    @apply px-3 py-1 text-sm text-white transition ease-in-out bg-red-500 rounded shadow shadow-red-300 hover:bg-red-700;
+  }
+}
