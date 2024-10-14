@@ -30,52 +30,45 @@ function NovoPedidoPage() {
         className="grid grid-cols-1 p-2 my-2 text-gray-500 lg:grid-cols-2"
         onSubmit={formik.handleSubmit}
       >
-
         <div>
-          <label
-            className="absolute z-10 px-1 ml-3 -mt-1 text-sm font-bold text-gray-400 bg-white rounded"
-            htmlFor="c.name"
-          >
+          <label className="form-label" htmlFor="c.name">
             Cliente
           </label>
-          <div className="px-3 py-5 m-2 border rounded">
-            <div className="w-full m-3">
-              <label
-                className="absolute z-10 px-1 ml-3 -mt-2 text-sm bg-white rounded 0"
-                htmlFor="c.name"
-              >
-                Nome
+          <div className="form-section">
+            <div className="m-3">
+              <label className="txt-label" htmlFor="c.name">
+                Nome*
               </label>
-              <input type="text" className="w-full p-1 border rounded" />
+              <input type="text" className="txt-input" />
             </div>
             <div className="m-3">
-              <label
-                className="absolute z-10 px-1 ml-3 -mt-2 text-sm text-gray-400 bg-white rounded"
-                htmlFor="c.name"
-              >
+              <label className="txt-label" htmlFor="c.name">
                 Telefone
               </label>
-              <input type="text" className="p-1 border rounded" />
+              <input type="text" className="txt-input" />
+            </div>
+            <div className="m-3">
+              <label className="txt-label" htmlFor="c.name">
+                Email
+              </label>
+              <input type="email" className="txt-input" />
             </div>
           </div>
         </div>
 
         <div>
-          <label
-            className="absolute z-10 px-1 ml-3 -mt-1 text-sm font-bold text-gray-400 bg-white rounded"
-            htmlFor="c.name"
-          >
+          <label className="form-label" htmlFor="c.name">
             Produtos
           </label>
           <div className="px-3 py-5 m-2 border rounded">
-            <div>
+            <div className="m-3">
               <label
-                className="absolute z-10 px-1 ml-3 -mt-2 text-sm text-gray-400 bg-white rounded"
+                className="txt-label"
                 htmlFor="c.name"
               >
                 Nome
               </label>
-              <input type="text" className="p-1 border rounded" />
+              <input type="text" className="txt-input " />
             </div>
           </div>
         </div>

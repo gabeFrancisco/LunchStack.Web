@@ -16,29 +16,44 @@
     radial-gradient(142% 91% at 111% 84%, #00d8ffff 0%, #00adffff 100%);
 } */
 
-*{
+* {
   font-family: "Oxygen", sans-serif;
 }
 
-
-@layer components{
-  .btn{
+@layer components {
+  .btn {
     @apply px-3 py-1 text-sm text-gray-500 transition ease-in-out border rounded shadow bg-gray-50 shadow-gray-300 hover:bg-gray-200;
   }
 
-  .btn-primary{
+  .btn-primary {
     @apply px-3 py-1 text-sm text-white transition ease-in-out rounded shadow shadow-primary bg-primary hover:bg-blue-900;
   }
 
-  .btn-green{
-    @apply px-3 py-1 text-sm text-white transition ease-in-out rounded shadow bg-emerald-500 shadow-emerald-300 hover:bg-emerald-700;
+  .btn-green {
+    @apply px-3 py-1 text-sm text-white transition ease-in-out rounded shadow bg-emerald-500 shadow-emerald-400 hover:bg-emerald-700;
   }
 
-  .btn-yellow{
+  .btn-yellow {
     @apply px-3 py-1 text-sm text-white transition ease-in-out bg-yellow-400 rounded shadow shadow-yellow-300 hover:bg-yellow-600;
   }
-  
-  .btn-red{
-    @apply px-3 py-1 text-sm text-white transition ease-in-out bg-red-500 rounded shadow shadow-red-300 hover:bg-red-700;
+
+  .btn-red {
+    @apply px-3 py-1 text-sm text-white transition ease-in-out bg-red-500 rounded shadow shadow-red-500 hover:bg-red-700;
+  }
+
+  .txt-input {
+    @apply w-full p-1 border rounded;
+  }
+
+  .txt-label {
+    @apply absolute z-10 px-1 ml-3 -mt-2 text-sm bg-white rounded;
+  }
+
+  .form-section {
+    @apply px-3 py-5 m-2 border rounded;
+  }
+
+  .form-label{
+    @apply absolute z-10 px-1 ml-3 -mt-1 text-sm font-bold bg-white rounded
   }
 }
