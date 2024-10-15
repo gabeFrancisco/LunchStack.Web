@@ -2,15 +2,22 @@ import { useFormik } from "formik";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import Skeleton from "react-loading-skeleton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAllTablesAsync } from "../../store/slices/tableSlice";
 import ProductOrderList from "../../components/ProductOrder/ProductOrderList";
+import NewProductOrderModal from "../../components/ProductOrder/NewProductOrderModal";
 
 function NovoPedidoPage() {
   const dispatch = useAppDispatch();
   const tables = useAppSelector((state) =>
     state.tables.tableList.filter((table) => table.isBusy === false)
   );
+
+  const [newProductOrderModal, setNewProductOrderModal] = useState(false);
+  const handleNewProductOrderModal = () =>
+    newProductOrderModal
+      ? setNewProductOrderModal(false)
+      : setNewProductOrderModal(true);
 
   useEffect(() => {
     dispatch(getAllTablesAsync());
@@ -62,8 +69,8 @@ function NovoPedidoPage() {
             Produtos
           </label>
           <div className="form-section">
-            <button className="w-full btn-green">Adicionar produto</button>
-            <ProductOrderList/>
+            <button className="w-full btn-green" onClick={handleNewProductOrderModal}>Adicionar produto</button>
+            <ProductOrderList />
           </div>
         </div>
 
@@ -82,6 +89,7 @@ function NovoPedidoPage() {
           )}
         </div>
       </form>
+      {newProductOrderModal && <NewProductOrderModal handleClose={handleNewProductOrderModal}/>}
     </div>
   );
 }

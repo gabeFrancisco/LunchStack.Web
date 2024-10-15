@@ -23,14 +23,14 @@ function CategoryInfoModal(props: Props) {
         <button
           type="button"
           onClick={props.handleClose}
-          className="p-1 mr-2 text-white bg-red-500 rounded shadow hover:bg-red-600"
+          className="mx-3 btn-red"
         >
           Cancelar
         </button>
         <button
           type="button"
           onClick={() => formik.handleSubmit()}
-          className="p-1 ml-2 text-white rounded shadow bg-primary hover:bg-blue-800"
+          className="mx-3 btn-primary"
         >
           Confirmar
         </button>

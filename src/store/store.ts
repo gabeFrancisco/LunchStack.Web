@@ -5,6 +5,7 @@ import { CategorySlice } from "./slices/categorySlice";
 import { ProductSlice } from "./slices/productSlice";
 import { TableSlice } from "./slices/tableSlice";
 import { OrderSheetSlice } from "./slices/orderSheetSlice";
+import { ProductOrderSlice } from "./slices/productOrderSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ export const store = configureStore({
     categories: CategorySlice.reducer,
     products: ProductSlice.reducer,
     tables: TableSlice.reducer,
-    orderSheets: OrderSheetSlice.reducer
+    orderSheets: OrderSheetSlice.reducer,
+    productOrders: ProductOrderSlice.reducer
   },
   devTools: true,
 }); 
