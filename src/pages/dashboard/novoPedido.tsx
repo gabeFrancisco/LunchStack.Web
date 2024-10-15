@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../store/store";
 import Skeleton from "react-loading-skeleton";
 import { useEffect } from "react";
 import { getAllTablesAsync } from "../../store/slices/tableSlice";
+import ProductOrderList from "../../components/ProductOrder/ProductOrderList";
 
 function NovoPedidoPage() {
   const dispatch = useAppDispatch();
@@ -35,19 +36,19 @@ function NovoPedidoPage() {
             Cliente
           </label>
           <div className="form-section">
-            <div className="m-3">
+            <div className="mx-3 mt-2 mb-5">
               <label className="txt-label" htmlFor="c.name">
                 Nome*
               </label>
               <input type="text" className="txt-input" />
             </div>
-            <div className="m-3">
+            <div className="mx-3 mb-5">
               <label className="txt-label" htmlFor="c.name">
                 Telefone
               </label>
               <input type="text" className="txt-input" />
             </div>
-            <div className="m-3">
+            <div className="mx-3 mb-5">
               <label className="txt-label" htmlFor="c.name">
                 Email
               </label>
@@ -60,16 +61,9 @@ function NovoPedidoPage() {
           <label className="form-label" htmlFor="c.name">
             Produtos
           </label>
-          <div className="px-3 py-5 m-2 border rounded">
-            <div className="m-3">
-              <label
-                className="txt-label"
-                htmlFor="c.name"
-              >
-                Nome
-              </label>
-              <input type="text" className="txt-input " />
-            </div>
+          <div className="form-section">
+            <button className="w-full btn-green">Adicionar produto</button>
+            <ProductOrderList/>
           </div>
         </div>
 

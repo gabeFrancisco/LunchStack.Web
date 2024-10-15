@@ -50,10 +50,10 @@
   }
 
   .form-section {
-    @apply px-3 py-5 m-2 border rounded;
+    @apply px-3 py-5 m-2 border rounded-lg shadow-sm;
   }
 
   .form-label{
-    @apply absolute z-10 px-1 ml-3 -mt-1 text-sm font-bold bg-white rounded
+    @apply absolute z-10 px-1 ml-3 -mt-1 text-sm  bg-white rounded
   }
 }
