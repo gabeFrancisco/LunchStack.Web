@@ -19,7 +19,7 @@ function UserRoutes() {
   }, []);
 
   return (
-    <div className="flex flex-col bg-slate-50">
+    <div className="flex flex-col h-screen bg-slate-50">
       <Header />
       <div className="flex flex-row w-full">
         <Sidebar />
@@ -27,7 +27,7 @@ function UserRoutes() {
           <div className="p-3 m-3 my-0 overflow-y-scroll bg-white border rounded-lg shadow-lg border-slate-100">
             <Outlet />
           </div>
-        </div>
+        </div> 
       </div>
     </div>
   );
