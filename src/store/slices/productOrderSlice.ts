@@ -1,9 +1,10 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { ProductOrder } from "../../models/ProductOrder";
 
 export interface ProductOrderState{
   productOrder: ProductOrder,
   productOrderList: Array<ProductOrder>;
+  selectedProductOrderList: Array<ProductOrder>;
 }
 
 const initialState: ProductOrderState = {
@@ -11,7 +12,8 @@ const initialState: ProductOrderState = {
     productId: 0,
     quantity: 0,
   },
-  productOrderList: new Array<ProductOrder>
+  productOrderList: new Array<ProductOrder>,
+  selectedProductOrderList: new Array<ProductOrder>
 }
 
 export const ProductOrderSlice = createSlice({
