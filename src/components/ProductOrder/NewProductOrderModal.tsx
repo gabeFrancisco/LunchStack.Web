@@ -1,3 +1,4 @@
+import { useAppSelector } from "../../store/store";
 import Modal from "../Modal/Modal";
 import ProductTable from "../Products/ProductTable";
 import SelectedProductOrderList from "./SelectedProductOrderList";
@@ -7,6 +8,7 @@ interface Props {
 }
 
 function NewProductOrderModal(props: Props) {
+  const orderTotal = useAppSelector(state => state.orderSheets.newOrderTotal)
   return (
     <Modal toggleModal={props.handleClose} margin={0}>
       <div className="flex flex-col justify-center">
@@ -15,7 +17,7 @@ function NewProductOrderModal(props: Props) {
         <SelectedProductOrderList/>
         <div className="flex flex-row justify-end m-5">
           <h3 className="mr-3 text-xl">Total do peido:</h3>
-          <h3 className="text-xl font-bold text-green-400">R$58,50</h3>
+          <h3 className="text-xl font-bold text-green-400">R${orderTotal.toFixed(2)}</h3>
         </div>
         <div className="flex flex-row justify-center">
           <button

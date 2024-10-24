@@ -6,7 +6,8 @@ import ajaxAdapter from "../../service/ajaxAdapter"
 
 export interface OrderSheetState{
   orderSheet: OrderSheet,
-  orderSheetList: Array<OrderSheet>
+  orderSheetList: Array<OrderSheet>,
+  newOrderTotal: number
 }
 
 const initialState: OrderSheetState = {
@@ -24,7 +25,8 @@ const initialState: OrderSheetState = {
     productOrders: new Array<ProductOrder>(),
     tableId: 0,
   },
-  orderSheetList: new Array<OrderSheet>()
+  orderSheetList: new Array<OrderSheet>(),
+  newOrderTotal: 0
 }
 
 export const getAllOrderSheetsAsync = createAsyncThunk(
