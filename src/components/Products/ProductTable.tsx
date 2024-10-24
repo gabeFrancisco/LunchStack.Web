@@ -19,28 +19,28 @@ function ProductTable() {
             <table className="min-w-full text-sm font-light text-left text-surface dark:text-white">
               <thead className="sticky top-0 overflow-auto font-medium border-b border-neutral-200 dark:border-white/10">
                 <tr>
-                  <th scope="col" className="sticky px-6 py-4">
-                    #
-                  </th>
-                  <th scope="col" className="sticky px-6 py-4">
-                    First
-                  </th>
-                  <th scope="col" className="sticky px-6 py-4">
-                    Last
-                  </th>
-                  <th scope="col" className="sticky px-6 py-4">
-                    Handle
-                  </th>
+                  <td scope="col" className="sticky px-6 py-4">
+                   Produto
+                  </td>
+                  <td scope="col" className="sticky px-6 py-4">
+                    Categoria
+                  </td>
+                  <td scope="col" className="sticky px-6 py-4">
+                    Quantidade
+                  </td>
+                  <td scope="col" className="sticky px-6 py-4">
+                    Preço
+                  </td>
                 </tr>
               </thead>
               <tbody className="h-24 overflow-scroll max-h-24">
                 {products.length > 0 ? (
                   products.map((el, index) => (
-                    <tr
-                      className="border-b border-neutral-200 dark:border-white/10"
+                    <tr onClick={() => console.log(el)}
+                      className="border-b border-neutral-200 dark:border-white/10 hover:bg-slate-100 hover:cursor-pointer"
                       key={index}
                     >
-                      <th className="px-6 py-2 whitespace-nowrap">{el.name}</th>
+                      <td className="px-6 py-2 whitespace-nowrap">{el.name}</td>
                       <td className="px-6 py-2 whitespace-nowrap">
                         {el.categoryName}
                       </td>
