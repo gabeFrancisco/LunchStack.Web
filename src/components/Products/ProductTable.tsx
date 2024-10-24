@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { getAllProductsAsync } from "../../store/slices/productSlice";
 import Skeleton from "react-loading-skeleton";
+import { addProductOrder } from "../../store/slices/productOrderSlice";
 
 function ProductTable() {
   const products = useAppSelector((state) => state.products.productList);
@@ -20,7 +21,7 @@ function ProductTable() {
               <thead className="sticky top-0 overflow-auto font-medium border-b border-neutral-200 dark:border-white/10">
                 <tr>
                   <td scope="col" className="sticky px-6 py-4">
-                   Produto
+                    Produto
                   </td>
                   <td scope="col" className="sticky px-6 py-4">
                     Categoria
@@ -36,7 +37,18 @@ function ProductTable() {
               <tbody className="h-24 overflow-scroll max-h-24">
                 {products.length > 0 ? (
                   products.map((el, index) => (
-                    <tr onClick={() => console.log(el)}
+                    <tr
+                      onClick={() =>
+                        dispatch(
+                          addProductOrder({
+                            productOrder: {
+                              productId: el.id!,
+                              quantity: 1,
+                              product: el,
+                            },
+                          })
+                        )
+                      }
                       className="border-b border-neutral-200 dark:border-white/10 hover:bg-slate-100 hover:cursor-pointer"
                       key={index}
                     >
