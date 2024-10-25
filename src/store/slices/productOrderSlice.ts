@@ -20,8 +20,17 @@ export const ProductOrderSlice = createSlice({
   name: "ProductOrders",
   initialState,
   reducers: {
-    addProductOrder: (state, { payload } : PayloadAction<{productOrder: ProductOrder}>) => {
-      state.selectedProductOrderList.push(payload.productOrder);
+    addProductOrder: (
+      state,
+      { payload }: PayloadAction<{ productOrder: ProductOrder }>
+    ) => {
+      if (
+        !state.selectedProductOrderList.find(
+          (x) => x.productId === payload.productOrder.productId
+        )
+      ) {
+        state.selectedProductOrderList.push(payload.productOrder);
+      }
     },
   },
   extraReducers: (builder) => {},
